@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bianca Shalom — Walking the Path from 3D Pitfalls to 5D Peace</title>
+    <meta name="description" content="Bianca Shalom is a devotional ministry sharing reflections, teachings, a 21-Day Activation Challenge, healing frequencies, and a free sacred library for anyone seeking 5D peace. Everything here is free — no cost, no obligation.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bianca Shalom — Broadcasting the Light">
+    <meta property="og:description" content="A devotional ministry offering free reflections, healing frequencies, and a 21-Day Activation Challenge for anyone seeking steadier inner peace.">
+    <meta property="og:image" content="images/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bianca Shalom — Broadcasting the Light">
+    <meta name="twitter:description" content="Free teachings, healing frequencies, scriptures, and a 21-Day Activation Challenge.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --divine-gold: #C9A961;
+            --gold-deep: #A8892E;
+            --gold-light: #E8C97A;
+            --charcoal: #1C1A17;
+            --near-black: #0E0C0A;
+            --angel-white: #FDFCFA;
+            --soft-cream: #F5F1EA;
+            --royal-blue: #0B1A2E;
+            --text-muted: #8A8278;
+            --text-dark: #3A3630;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .marquee-track { animation: none !important; }
+            .bird-path-container { display: none !important; }
+        }
+
+        /* ===== RESET ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Jost', sans-serif; background: var(--near-black); color: var(--angel-white); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== READING PROGRESS BAR ===== */
+        .reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px;
+            width: 0%; background: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+            z-index: 1200; transition: width 0.1s linear;
+            box-shadow: 0 0 8px rgba(201,169,97,0.5);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 1.2s ease, transform 1.2s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 1.2s ease, transform 1.2s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .img-reveal { opacity: 0; transition: opacity 0.8s ease; }
+        .img-reveal.loaded { opacity: 1; }
+
+        /* Gold line draw */
+        .gold-line {
+            display: block; width: 60px; height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--divine-gold), transparent);
+            margin: 1.8rem auto;
+            transform: scaleX(0); transform-origin: center;
+            transition: transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s;
+        }
+        .gold-line.visible { transform: scaleX(1); }
+        .section-eyebrow {
+            font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--divine-gold); display: block; margin-bottom: 1.2rem;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.4rem 4rem; transition: all 0.5s ease;
+        }
+        header.scrolled {
+            background: rgba(253,252,250,0.97); backdrop-filter: blur(12px);
+            padding: 0.8rem 4rem; box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+        }
+        .logo-link { display: flex; align-items: center; }
+        .logo-img { height: 54px; width: auto; display: block; transition: height 0.4s ease; filter: drop-shadow(0 1px 8px rgba(0,0,0,0.3)); }
+        header.scrolled .logo-img { height: 40px; }
+
+        /* Nav */
+        nav { display: flex; align-items: center; gap: 0; }
+        .nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
+        .nav-links > li { position: relative; }
+        .nav-links > li > a {
+            font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.22em;
+            color: var(--angel-white); transition: color 0.3s ease; padding: 0.5rem 0.8rem; display: block;
+        }
+        header.scrolled .nav-links > li > a { color: var(--charcoal); }
+        .nav-links > li > a:hover { color: var(--divine-gold); }
+
+        /* Dropdown */
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: var(--angel-white); min-width: 220px; opacity: 0; pointer-events: none;
+            transform: translateX(-50%) translateY(8px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12); border-top: 2px solid var(--divine-gold);
+            padding: 0.6rem 0;
+        }
+        .nav-links > li:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown a {
+            display: block; padding: 0.6rem 1.4rem; font-size: 0.75rem; letter-spacing: 0.12em;
+            color: var(--charcoal); text-transform: uppercase; transition: background 0.2s, color 0.2s;
+        }
+        .nav-dropdown a:hover { background: var(--soft-cream); color: var(--gold-deep); }
+
+        .mobile-toggle { display: none; background: none; border: none; color: var(--angel-white); font-size: 1.3rem; cursor: pointer; }
+        header.scrolled .mobile-toggle { color: var(--charcoal); }
+
+        /* ===== HERO ===== */
+        .hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('images/hero.jpg') no-repeat center center / cover;
+            will-change: transform; transition: transform 0.1s linear;
+        }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,12,10,0.55) 0%, rgba(14,12,10,0.35) 50%, rgba(14,12,10,0.7) 100%); }
+        .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 2rem; max-width: 900px; }
+        .hero-content h1 {
+            font-family: 'Cinzel', serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 400;
+            letter-spacing: 0.12em; line-height: 1; color: var(--angel-white);
+            text-shadow: 0 2px 40px rgba(0,0,0,0.4);
+            animation: heroFadeUp 1.6s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+        }
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: rgba(253,252,250,0.8); letter-spacing: 0.08em; margin-top: 1.2rem;
+            animation: heroFadeUp 1.6s cubic-bezier(0.16,1,0.3,1) 0.7s both;
+        }
+        .hero-divider {
+            width: 80px; height: 1px; background: var(--divine-gold);
+            margin: 2rem auto; animation: heroFadeUp 1.6s ease 1.1s both;
+        }
+        .hero-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; animation: heroFadeUp 1.6s ease 1.4s both; }
+        .btn { display: inline-block; padding: 1rem 2.5rem; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid; transition: all 0.4s ease; cursor: pointer; font-family: 'Jost', sans-serif; }
+        .btn-gold { background: var(--divine-gold); border-color: var(--divine-gold); color: var(--charcoal); }
+        .btn-gold:hover { background: var(--gold-deep); border-color: var(--gold-deep); }
+        .btn-outline { background: transparent; border-color: rgba(253,252,250,0.5); color: var(--angel-white); }
+        .btn-outline:hover { background: rgba(253,252,250,0.1); border-color: var(--divine-gold); }
+        @keyframes heroFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== START HERE ===== */
+        .start-here { background: var(--soft-cream); padding: 2.8rem 0; text-align: center; border-bottom: 1px solid rgba(201,169,97,0.2); }
+        .start-here-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+        .start-here-label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-deep); display: block; margin-bottom: 1rem; }
+        .start-here-path { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+        .start-here-path a { font-size: 0.88rem; color: var(--text-dark); border-bottom: 1px solid var(--divine-gold); padding-bottom: 1px; transition: color 0.3s; }
+        .start-here-path a:hover { color: var(--gold-deep); }
+        .start-here-arrow { color: var(--text-muted); }
+        .start-here p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--text-muted); }
+
+        /* ===== SECTION COMMONS ===== */
+        .section-dark { background: var(--near-black); }
+        .section-cream { background: var(--soft-cream); }
+        .section-white { background: var(--angel-white); }
+        .section-royal { background: var(--royal-blue); }
+        .section-charcoal { background: var(--charcoal); }
+        .section-pad { padding: 10rem 0; }
+        .section-pad-sm { padding: 7rem 0; }
+        .inner { max-width: 1360px; margin: 0 auto; padding: 0 4rem; }
+        .inner-narrow { max-width: 860px; margin: 0 auto; padding: 0 4rem; }
+        .text-center { text-align: center; }
+        h2.section-title {
+            font-family: 'Cinzel', serif; font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400; letter-spacing: 0.08em; line-height: 1.2;
+        }
+        .section-dark h2.section-title, .section-royal h2.section-title, .section-charcoal h2.section-title { color: var(--angel-white); }
+        .section-cream h2.section-title, .section-white h2.section-title { color: var(--charcoal); }
+        .section-lead {
+            font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8; font-weight: 300; margin-top: 1.5rem;
+        }
+        .section-dark .section-lead { color: rgba(253,252,250,0.65); }
+        .section-cream .section-lead, .section-white .section-lead { color: var(--text-muted); }
+
+        /* ===== NOTE / WELCOME ===== */
+        .note-section { background: var(--angel-white); padding: 10rem 0; }
+        .note-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 8rem; align-items: center; max-width: 1360px; margin: 0 auto; padding: 0 4rem; }
+        .note-portrait { position: relative; }
+        .note-portrait img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+        .note-portrait::after { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 1px solid rgba(201,169,97,0.3); pointer-events: none; }
+        .note-content h2 { font-family: 'Cinzel', serif; font-size: 2.6rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.06em; }
+        .drop-cap::first-letter { font-family: 'Cinzel', serif; font-size: 4rem; line-height: 0.8; float: left; margin: 0.15rem 0.4rem 0 0; color: var(--divine-gold); }
+        .note-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 1.4rem; }
+        .signature { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: var(--divine-gold); margin-top: 2.5rem; }
+
+        /* ===== JOURNEY ===== */
+        .journey-section { background: var(--charcoal); padding: 10rem 0; position: relative; overflow: hidden; }
+        .journey-inner { max-width: 1360px; margin: 0 auto; padding: 0 4rem; }
+        .journey-block { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-bottom: 8rem; }
+        .journey-block:last-child { margin-bottom: 0; }
+        .journey-block.reverse { direction: rtl; }
+        .journey-block.reverse > * { direction: ltr; }
+        .journey-img { position: relative; overflow: hidden; }
+        .journey-img img { width: 100%; height: 480px; object-fit: cover; transition: transform 0.8s ease; }
+        .journey-img:hover img { transform: scale(1.03); }
+        .journey-img-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 2rem 1.5rem 1.2rem;
+            font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em;
+            color: var(--divine-gold); text-transform: uppercase;
+        }
+        .journey-text .chapter-num { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--divine-gold); margin-bottom: 0.8rem; display: block; }
+        .journey-text h3 { font-family: 'Cinzel', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; color: var(--angel-white); letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+        .journey-text .journey-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--divine-gold); font-style: italic; margin-bottom: 1.8rem; }
+        .journey-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.9; color: rgba(253,252,250,0.65); }
+        .journey-divider { width: 40px; height: 1px; background: var(--divine-gold); margin: 1.8rem 0; }
+
+        /* ===== MARQUEE (infinite scroll RTL) ===== */
+        .marquee-section { background: var(--near-black); padding: 0; overflow: hidden; }
+        .marquee-section.marquee-dark { background: var(--charcoal); }
+        .marquee-wrapper { overflow: hidden; position: relative; }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--near-black), transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--near-black), transparent); }
+        .marquee-dark .marquee-wrapper::before { background: linear-gradient(to right, var(--charcoal), transparent); }
+        .marquee-dark .marquee-wrapper::after { background: linear-gradient(to left, var(--charcoal), transparent); }
+        .marquee-track {
+            display: flex; gap: 1.5rem; padding: 1.5rem 0;
+            animation: marqueeRTL 35s linear infinite;
+            width: max-content;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marqueeRTL { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .marquee-img { width: 360px; height: 240px; object-fit: cover; flex-shrink: 0; filter: brightness(0.85); transition: filter 0.4s ease; }
+        .marquee-img:hover { filter: brightness(1); }
+        .marquee-gold-overlay { position: relative; }
+        .marquee-gold-overlay::after { content: ''; position: absolute; inset: 0; background: rgba(201,169,97,0.06); pointer-events: none; }
+
+        /* ===== PILLARS ===== */
+        .pillars-section { background: var(--soft-cream); padding: 10rem 0; }
+        .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(201,169,97,0.15); border: 1px solid rgba(201,169,97,0.15); margin-top: 5rem; }
+        .pillar-card { background: var(--angel-white); padding: 3rem 3rem 2.8rem; transition: background 0.4s ease; }
+        .pillar-card:hover { background: var(--soft-cream); }
+        .pillar-num { font-family: 'Cinzel', serif; color: var(--divine-gold); font-size: 0.78rem; letter-spacing: 0.25em; margin-bottom: 1rem; display: block; }
+        .pillar-card h4 { font-family: 'Cinzel', serif; font-size: 1.05rem; color: var(--charcoal); margin-bottom: 0.8rem; font-weight: 500; }
+        .pillar-card p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.7; }
+        /* Stagger */
+        .pillar-card.reveal:nth-child(1) { transition-delay: 0.04s; }
+        .pillar-card.reveal:nth-child(2) { transition-delay: 0.10s; }
+        .pillar-card.reveal:nth-child(3) { transition-delay: 0.16s; }
+        .pillar-card.reveal:nth-child(4) { transition-delay: 0.22s; }
+        .pillar-card.reveal:nth-child(5) { transition-delay: 0.28s; }
+        .pillar-card.reveal:nth-child(6) { transition-delay: 0.34s; }
+        .pillar-card.reveal:nth-child(7) { transition-delay: 0.40s; }
+        .pillar-card.reveal:nth-child(8) { transition-delay: 0.46s; }
+        .pillar-card.reveal:nth-child(9) { transition-delay: 0.52s; }
+        .pillar-card.reveal:nth-child(10) { transition-delay: 0.58s; }
+
+        /* ===== VIDEO MARQUEE ===== */
+        .video-marquee-section { background: var(--royal-blue); padding: 6rem 0 0; }
+        .video-marquee-header { text-align: center; padding-bottom: 4rem; }
+        .video-marquee-header h2 { color: var(--angel-white); }
+        .vid-track {
+            display: flex; gap: 1.5rem; padding: 0 0 1.5rem;
+            animation: marqueeRTL 40s linear infinite;
+            width: max-content;
+        }
+        .vid-track:hover { animation-play-state: paused; }
+        .vid-card { position: relative; width: 400px; flex-shrink: 0; cursor: pointer; }
+        .vid-card-img { width: 100%; height: 250px; object-fit: cover; filter: brightness(0.7); transition: filter 0.4s ease; }
+        .vid-card:hover .vid-card-img { filter: brightness(0.9); }
+        .vid-play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-70%);
+            width: 52px; height: 52px; background: rgba(201,169,97,0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; color: var(--charcoal); transition: transform 0.3s ease, background 0.3s;
+        }
+        .vid-card:hover .vid-play-btn { transform: translate(-50%,-70%) scale(1.1); background: var(--divine-gold); }
+        .vid-card-info { background: rgba(11,26,46,0.95); padding: 1rem 1.2rem; }
+        .vid-card-info h4 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--angel-white); margin-bottom: 0.3rem; }
+        .vid-card-info p { font-size: 0.78rem; color: var(--divine-gold); letter-spacing: 0.1em; }
+        .video-note { text-align: center; padding: 3rem 0; font-size: 0.85rem; color: rgba(253,252,250,0.4); font-style: italic; }
+
+        /* ===== SACRED LIBRARY / AUDIO ===== */
+        .library-section { background: var(--near-black); padding: 10rem 0; }
+        .library-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 5rem; }
+        .library-img-wrap { position: relative; }
+        .library-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: brightness(0.8); }
+        .library-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--near-black)); }
+        .audio-category {
+            display: flex; align-items: flex-start; gap: 1.5rem;
+            padding: 2rem 0; border-bottom: 1px solid rgba(201,169,97,0.12);
+            transition: padding-left 0.3s ease;
+        }
+        .audio-category:hover { padding-left: 0.6rem; }
+        .audio-category:last-child { border-bottom: none; }
+        .audio-play-btn {
+            width: 46px; height: 46px; border-radius: 50%; background: transparent;
+            border: 1px solid var(--divine-gold); color: var(--divine-gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; flex-shrink: 0; cursor: pointer; transition: all 0.3s ease;
+        }
+        .audio-play-btn:hover { background: var(--divine-gold); color: var(--charcoal); }
+        .audio-info h4 { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--angel-white); margin-bottom: 0.4rem; }
+        .audio-info p { font-size: 0.88rem; color: var(--text-muted); }
+        .audio-wave { display: flex; gap: 3px; align-items: flex-end; height: 24px; margin-top: 0.8rem; }
+        .audio-wave span { width: 3px; background: var(--divine-gold); opacity: 0.4; animation: wave 1.2s ease infinite; }
+        .audio-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .audio-wave span:nth-child(2) { height: 16px; animation-delay: 0.15s; }
+        .audio-wave span:nth-child(3) { height: 22px; animation-delay: 0.3s; }
+        .audio-wave span:nth-child(4) { height: 14px; animation-delay: 0.45s; }
+        .audio-wave span:nth-child(5) { height: 20px; animation-delay: 0.6s; }
+        .audio-wave span:nth-child(6) { height: 10px; animation-delay: 0.75s; }
+        .audio-wave span:nth-child(7) { height: 18px; animation-delay: 0.9s; }
+        @keyframes wave { 0%, 100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(0.4); opacity: 0.8; } }
+
+        /* ===== SKYPTURES (Scripture scroll) ===== */
+        .skyptures-section { background: var(--royal-blue); padding: 10rem 0; position: relative; overflow: hidden; }
+        .skyptures-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('images/hands-galaxy.jpg') no-repeat center center / cover;
+            opacity: 0.12;
+        }
+        .skyptures-inner { position: relative; z-index: 1; }
+        .scripture-cards { display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; scrollbar-width: thin; scrollbar-color: var(--divine-gold) transparent; margin-top: 4rem; }
+        .scripture-card {
+            min-width: 360px; background: rgba(255,255,255,0.04); border: 1px solid rgba(201,169,97,0.2);
+            padding: 3rem 2.5rem; flex-shrink: 0; position: relative;
+        }
+        .scripture-card::before { content: '\201C'; position: absolute; top: 1rem; left: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--divine-gold); opacity: 0.2; line-height: 1; }
+        .scripture-card blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.8; color: var(--angel-white); font-style: italic; margin-bottom: 1.5rem; }
+        .scripture-ref { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--divine-gold); }
+
+        /* ===== CELESTIAL LEXICON ===== */
+        .lexicon-section { background: var(--charcoal); padding: 10rem 0; }
+        .lexicon-track-wrap { overflow: hidden; margin-top: 4rem; }
+        .lexicon-track {
+            display: flex; gap: 1.5rem;
+            animation: marqueeRTL 30s linear infinite;
+            width: max-content; padding-bottom: 0.5rem;
+        }
+        .lexicon-track:hover { animation-play-state: paused; }
+        .lexicon-card { width: 320px; flex-shrink: 0; background: rgba(253,252,250,0.04); border: 1px solid rgba(201,169,97,0.15); padding: 2.5rem; }
+        .lexicon-term { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--divine-gold); margin-bottom: 1rem; }
+        .lexicon-def { font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.7; color: rgba(253,252,250,0.6); }
+        .drop-initial { font-family: 'Cinzel', serif; font-size: 2.2rem; float: left; line-height: 0.8; margin: 0.2rem 0.4rem 0 0; color: var(--divine-gold); }
+
+        /* ===== BLOGS ===== */
+        .blogs-section { background: var(--soft-cream); padding: 10rem 0; }
+        .blog-track-wrap { overflow-x: auto; margin-top: 4rem; scrollbar-width: thin; scrollbar-color: var(--divine-gold) transparent; }
+        .blog-track { display: flex; gap: 2rem; padding-bottom: 1.5rem; width: max-content; }
+        .blog-card { width: 340px; flex-shrink: 0; background: var(--angel-white); transition: transform 0.4s ease; }
+        .blog-card:hover { transform: translateY(-6px); }
+        .blog-card-img { width: 100%; height: 220px; object-fit: cover; transition: filter 0.4s ease; }
+        .blog-card:hover .blog-card-img { filter: brightness(0.9); }
+        .blog-card-body { padding: 1.8rem 1.8rem 2rem; border: 1px solid rgba(201,169,97,0); border-top: 2px solid var(--divine-gold); transition: border-color 0.4s ease; }
+        .blog-card:hover .blog-card-body { border-color: rgba(201,169,97,0.3); }
+        .blog-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.22em; color: var(--divine-gold); text-transform: uppercase; margin-bottom: 0.8rem; display: block; }
+        .blog-card-body h4 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--charcoal); margin-bottom: 0.8rem; font-weight: 500; line-height: 1.4; }
+        .blog-card-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* ===== 21 DAYS CHALLENGE ===== */
+        .challenge-section { background: var(--near-black); padding: 10rem 0; position: relative; overflow: hidden; }
+        .challenge-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('images/angel-silhouette.jpg') no-repeat center center / cover; opacity: 0.08;
+        }
+        .challenge-inner { position: relative; z-index: 1; }
+        .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-top: 4rem; }
+        .challenge-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+        .challenge-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.9; color: rgba(253,252,250,0.65); margin-bottom: 1.5rem; }
+        .challenge-steps { list-style: none; margin: 2rem 0; }
+        .challenge-steps li { display: flex; align-items: flex-start; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(201,169,97,0.1); font-size: 0.92rem; color: rgba(253,252,250,0.65); }
+        .challenge-steps li span.step-num { font-family: 'Cinzel', serif; color: var(--divine-gold); min-width: 28px; font-size: 0.85rem; }
+
+        /* ===== FAQ ===== */
+        .faq-section { background: var(--angel-white); padding: 10rem 0; }
+        .faq-inner { max-width: 860px; margin: 0 auto; padding: 0 4rem; }
+        .faq-item { border-bottom: 1px solid rgba(201,169,97,0.18); }
+        .faq-btn {
+            width: 100%; padding: 2rem 0; background: none; border: none; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+            text-align: left; font-family: 'Jost', sans-serif; font-size: 1rem;
+            color: var(--charcoal); letter-spacing: 0.02em;
+        }
+        .faq-icon { color: var(--divine-gold); font-size: 0.9rem; transition: transform 0.4s ease; flex-shrink: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding-bottom 0.5s ease; }
+        .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 1.8rem; }
+        .faq-answer p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.8; }
+        .faq-accent { max-width: 300px; margin: 0 auto 3.5rem; }
+        .faq-accent img { width: 100%; aspect-ratio: 4/3; object-fit: cover; opacity: 0.88; }
+
+        /* ===== SOVEREIGN POSTBOX ===== */
+        .postbox-section { background: var(--charcoal); padding: 10rem 0; }
+        .postbox-inner { max-width: 720px; margin: 0 auto; padding: 0 4rem; text-align: center; }
+        .postbox-thankyou { width: 100%; max-width: 480px; margin: 0 auto 4rem; display: block; opacity: 0.88; }
+        .postbox-form { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 1.2rem; text-align: left; }
+        .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-field label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--divine-gold); }
+        .form-field input, .form-field textarea {
+            background: transparent; border: none; border-bottom: 1px solid rgba(201,169,97,0.3);
+            color: var(--angel-white); font-family: 'Jost', sans-serif; font-size: 0.95rem;
+            padding: 0.8rem 0; outline: none; transition: border-color 0.3s ease; resize: none;
+        }
+        .form-field input:focus, .form-field textarea:focus { border-bottom-color: var(--divine-gold); }
+        .form-field textarea { min-height: 120px; }
+
+        /* ===== CAMPAIGNS ===== */
+        .campaigns-section { background: var(--near-black); padding: 10rem 0; position: relative; overflow: hidden; }
+        .campaigns-bg { position: absolute; inset: 0; background: url('images/paint-woman-explosion.jpg') no-repeat center center / cover; opacity: 0.08; }
+        .campaigns-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; padding: 0 4rem; }
+        .in-progress-badge {
+            display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--divine-gold);
+            font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em;
+            color: var(--divine-gold); margin-bottom: 2.5rem;
+        }
+        .campaigns-inner p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.9; color: rgba(253,252,250,0.6); }
+
+        /* ===== DOORWAYS ACCORDION ===== */
+        .doorways-section { background: var(--charcoal); padding: 10rem 0; position: relative; }
+        .doorways-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+        .chapter-item { border-bottom: 1px solid rgba(253,252,250,0.08); }
+        .chapter-header {
+            display: grid; grid-template-columns: 56px 2fr 1.2fr 28px;
+            gap: 2rem; width: 100%; padding: 2rem 0;
+            background: transparent; border: none; align-items: center;
+            transition: padding-left 0.3s ease; cursor: pointer;
+            text-align: left; font: inherit; color: inherit;
+        }
+        .chapter-header:hover { padding-left: 0.8rem; background: rgba(201,169,97,0.03); }
+        .chapter-num { font-family: 'Cinzel', serif; color: var(--divine-gold); font-size: 0.85rem; letter-spacing: 0.15em; }
+        .chapter-title { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--angel-white); font-weight: 400; }
+        .chapter-desc { font-size: 0.85rem; color: var(--text-muted); text-align: right; }
+        .chapter-toggle { position: relative; width: 16px; height: 16px; justify-self: end; flex-shrink: 0; }
+        .chapter-toggle::before, .chapter-toggle::after { content: ''; position: absolute; background: var(--divine-gold); top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform 0.4s ease; }
+        .chapter-toggle::before { width: 14px; height: 1.5px; }
+        .chapter-toggle::after { width: 1.5px; height: 14px; }
+        .chapter-item.open .chapter-toggle::after { transform: translate(-50%,-50%) rotate(90deg) scale(0); }
+        .chapter-detail { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.6s ease, opacity 0.5s ease, padding-bottom 0.5s ease; padding-bottom: 0; }
+        .chapter-item.open .chapter-detail { max-height: 280px; opacity: 1; padding-bottom: 2rem; }
+        .chapter-detail p { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; line-height: 1.8; color: rgba(253,252,250,0.55); max-width: 760px; margin-bottom: 0.8rem; }
+        .chapter-prompt { color: var(--divine-gold) !important; font-style: italic; }
+        .chapter-item.invitation { border-bottom: none; }
+        .chapter-item.invitation .chapter-title { color: var(--divine-gold); }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--near-black); padding: 7rem 0 3rem; border-top: 1px solid rgba(201,169,97,0.15); }
+        .footer-logo-wrap { text-align: center; margin-bottom: 4rem; }
+        .footer-logo-img { height: 42px; width: auto; display: inline-block; }
+        .footer-gold-line { width: 60px; height: 1px; background: var(--divine-gold); margin: 2rem auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+        .footer-col h4 { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--divine-gold); margin-bottom: 1.5rem; }
+        .footer-col p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+        .footer-col ul li a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.3s ease; letter-spacing: 0.05em; }
+        .footer-col ul li a:hover { color: var(--divine-gold); }
+        .footer-social { display: flex; gap: 1.2rem; margin-top: 1.5rem; }
+        .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(201,169,97,0.3); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85rem; transition: all 0.3s ease; }
+        .footer-social a:hover { border-color: var(--divine-gold); color: var(--divine-gold); }
+        .footer-bottom { text-align: center; padding: 3rem 4rem 0; border-top: 1px solid rgba(253,252,250,0.06); margin-top: 4rem; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--text-muted); }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+            .inner { padding: 0 1.5rem; }
+            .inner-narrow { padding: 0 1.5rem; }
+            header { padding: 1.2rem 1.5rem; }
+            header.scrolled { padding: 0.7rem 1.5rem; }
+            .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--near-black); justify-content: center; align-items: center; gap: 2rem; padding: 2rem; z-index: 999; }
+            .nav-links.active { display: flex; }
+            .nav-links > li > a { font-size: 1rem; color: var(--angel-white) !important; }
+            .mobile-toggle { display: flex; }
+            .note-grid, .journey-block, .library-grid, .challenge-grid, .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .journey-block.reverse { direction: ltr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .chapter-header { grid-template-columns: 40px 1fr 28px; }
+            .chapter-desc { display: none; }
+            .section-pad { padding: 6rem 0; }
+            .faq-inner { padding: 0 1.5rem; }
+            .postbox-inner { padding: 0 1.5rem; }
+            h2.section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- HEADER -->
+<header id="mainHeader">
+    <a href="#hero" class="logo-link">
+        <img src="images/logo.png" alt="Bianca Shalom" class="logo-img img-reveal">
+    </a>
+    <nav>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#journey">My Journey</a></li>
+            <li><a href="#pillars">Ten Pillars</a></li>
+            <li>
+                <a href="#library">Sacred Library ▾</a>
+                <div class="nav-dropdown">
+                    <a href="#library">Meditations</a>
+                    <a href="#library">Prayers</a>
+                    <a href="#library">God's Words</a>
+                    <a href="#library">Scriptures</a>
+                    <a href="#library">Spiritual Knowledge</a>
+                </div>
+            </li>
+            <li><a href="#lexicon">Lexicon</a></li>
+            <li><a href="#blogs">Dispatches</a></li>
+            <li><a href="#postbox">Postbox</a></li>
+            <li><a href="#challenge">21 Days</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Bianca Shalom</h1>
+        <p class="hero-sub">Walking the Path from 3D Pitfalls to 5D Peace</p>
+        <div class="hero-divider"></div>
+        <div class="hero-btns">
+            <a href="#journey" class="btn btn-gold">Begin the Journey</a>
+            <a href="#note" class="btn btn-outline">A Note from My Heart</a>
+        </div>
+    </div>
+</section>
+
+<!-- START HERE -->
+<div class="start-here">
+    <div class="start-here-inner reveal">
+        <span class="start-here-label">New here? A suggested path</span>
+        <div class="start-here-path">
+            <a href="#note">Welcome</a><span class="start-here-arrow">→</span>
+            <a href="#journey">The Journey</a><span class="start-here-arrow">→</span>
+            <a href="#pillars">Ten Pillars</a><span class="start-here-arrow">→</span>
+            <a href="#library">Sacred Library</a><span class="start-here-arrow">→</span>
+            <a href="#challenge">21-Day Challenge</a>
+        </div>
+        <p>Or explore freely — nothing requires a particular order.</p>
+    </div>
+</div>
+
+<!-- NOTE FROM MY HEART -->
+<section id="note" class="note-section">
+    <div class="note-grid">
+        <div class="note-portrait reveal-left">
+            <img src="images/portal-face.jpg" alt="A symbolic portrait — inner light, outward stillness" class="img-reveal">
+        </div>
+        <div class="note-content reveal-right">
+            <span class="section-eyebrow">Welcome</span>
+            <h2>A Note from My Heart</h2>
+            <span class="gold-line"></span>
+            <p class="drop-cap">This ministry did not begin with a plan. It began with years of ordinary life — teaching, listening, struggling, and slowly noticing how often peace gets lost to fear, comparison, and noise. What is shared here grew out of that noticing: practices that helped, language that clarified, and a few honest realizations that took a long time to arrive at.</p>
+            <p>True wisdom is not found in the confines of traditional walls, but in the vast, uncharted territories of the spirit. I share my witness — stepping beyond the classroom of the mundane to perceive the unseen realities that govern our existence.</p>
+            <p>None of it claims to be the only way, or even a finished way. It is one woman's path, offered openly, in case parts of it are useful to someone walking their own. Nothing here is for sale.</p>
+            <div class="signature">Bianca Shalom</div>
+        </div>
+    </div>
+</section>
+
+<!-- SCROLLING IMAGE MARQUEE 1 -->
+<div class="marquee-section">
+    <div class="marquee-wrapper marquee-gold-overlay">
+        <div class="marquee-track" id="marquee1">
+            <img src="images/forest-light.jpg" alt="Light through the forest" class="marquee-img img-reveal">
+            <img src="images/bible-iris.jpg" alt="Open scripture" class="marquee-img img-reveal">
+            <img src="images/angel-silhouette.jpg" alt="Winged figure" class="marquee-img img-reveal">
+            <img src="images/two-walkers.jpg" alt="Walking the path" class="marquee-img img-reveal">
+            <img src="images/stone-angel.jpg" alt="Stone angel" class="marquee-img img-reveal">
+            <img src="images/fairy-forest.jpg" alt="Reaching" class="marquee-img img-reveal">
+            <img src="images/red-knight.jpg" alt="Stillness before the step" class="marquee-img img-reveal">
+            <!-- duplicate for seamless loop -->
+            <img src="images/forest-light.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/bible-iris.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/angel-silhouette.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/two-walkers.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/stone-angel.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/fairy-forest.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/red-knight.jpg" alt="" class="marquee-img" aria-hidden="true">
+        </div>
+    </div>
+</div>
+
+<!-- THE JOURNEY -->
+<section id="journey" class="journey-section">
+    <div class="journey-inner">
+        <div class="text-center reveal" style="margin-bottom:6rem;">
+            <span class="section-eyebrow">The Story</span>
+            <h2 class="section-title" style="color:var(--angel-white)">THE JOURNEY</h2>
+            <span class="gold-line"></span>
+            <p class="section-lead" style="color:rgba(253,252,250,0.55); max-width:600px; margin:0 auto;">From 3D Pitfalls to 5D Peace</p>
+        </div>
+
+        <div class="journey-block reveal">
+            <div class="journey-img">
+                <img src="images/two-walkers.jpg" alt="Walking the path beyond the classroom" class="img-reveal">
+                <div class="journey-img-label">My Witness</div>
+            </div>
+            <div class="journey-text">
+                <span class="chapter-num">01</span>
+                <h3>My Witness</h3>
+                <p class="journey-subtitle">Beyond the Classroom</p>
+                <div class="journey-divider"></div>
+                <p>"True wisdom is not found in the confines of traditional walls, but in the vast, uncharted territories of the spirit. Here, I share my witness — stepping beyond the classroom of the mundane to perceive the unseen realities that govern our existence."</p>
+            </div>
+        </div>
+
+        <div class="journey-block reverse reveal">
+            <div class="journey-img">
+                <img src="images/veil-rocks.jpg" alt="From the fires of suffering to unconditional love" class="img-reveal">
+                <div class="journey-img-label">My Breakthrough</div>
+            </div>
+            <div class="journey-text">
+                <span class="chapter-num">02</span>
+                <h3>My Breakthrough</h3>
+                <p class="journey-subtitle">From the Fires of Suffering to Unconditional Love</p>
+                <div class="journey-divider"></div>
+                <p>"Suffering is the crucible where the false self burns away. My breakthrough was forged in the fires of tribulation, melting away the illusions of the 3D world to reveal the pure, unconditional love that resides in the 5D frequency."</p>
+            </div>
+        </div>
+
+        <div class="journey-block reveal">
+            <div class="journey-img">
+                <img src="images/hands-galaxy.jpg" alt="The Divine Power Grid" class="img-reveal">
+                <div class="journey-img-label">My Understanding</div>
+            </div>
+            <div class="journey-text">
+                <span class="chapter-num">03</span>
+                <h3>My Understanding</h3>
+                <p class="journey-subtitle">The Divine Power Grid &amp; The Matrix</p>
+                <div class="journey-divider"></div>
+                <p>"We are conduits in a vast Divine Power Grid. My understanding deepened as I learned to navigate the Matrix, recognise the strategies of dark forces, and engage in spiritual warfare not with fear, but with the authority of light."</p>
+            </div>
+        </div>
+
+        <div class="journey-block reverse reveal">
+            <div class="journey-img">
+                <img src="images/abstract-woman.jpg" alt="The treasure of the inner self" class="img-reveal">
+                <div class="journey-img-label">My Discovery</div>
+            </div>
+            <div class="journey-text">
+                <span class="chapter-num">04</span>
+                <h3>My Discovery</h3>
+                <p class="journey-subtitle">The Treasure of My Inner Self</p>
+                <div class="journey-divider"></div>
+                <p>"Beneath the layers of conditioning lies an incorruptible treasure. Discovering my inner self was the key that unlocked the vault to divine alignment and eternal peace."</p>
+            </div>
+        </div>
+
+        <div class="journey-block reveal">
+            <div class="journey-img">
+                <img src="images/paint-woman-explosion.jpg" alt="Three stages of mindset shift" class="img-reveal">
+                <div class="journey-img-label">My Evolution</div>
+            </div>
+            <div class="journey-text">
+                <span class="chapter-num">05</span>
+                <h3>My Evolution</h3>
+                <p class="journey-subtitle">The 3 Stages of Mindset Shift</p>
+                <div class="journey-divider"></div>
+                <p>"Awakening is a progression. My evolution unfolded in three distinct stages of mindset shift: recognising the illusion, dismantling the ego, and anchoring fully into the sovereign truth of the soul."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEN PILLARS -->
+<section id="pillars" class="pillars-section">
+    <div class="inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Foundations</span>
+            <h2 class="section-title">THE TEN PILLARS OF DIVINE ALIGNMENT</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="pillars-grid">
+            <div class="pillar-card reveal"><span class="pillar-num">I</span><h4>The Pillar of Witness</h4><p>Seeing beyond the veil of the physical world — perceiving the invisible realities that shape the visible.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">II</span><h4>The Pillar of Breakthrough</h4><p>Transformation through the fires of trials — where the false self is consumed and the true self emerges.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">III</span><h4>The Pillar of Unconditional Love</h4><p>The ultimate frequency of the 5D realm — the only force that dissolves fear completely.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">IV</span><h4>The Pillar of the Divine Grid</h4><p>Connection to the infinite source of power — the unseen network of divine energy binding all living things.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">V</span><h4>The Pillar of Matrix Navigation</h4><p>Discerning truth from illusion — knowing when the 3D world is pulling attention away from what is real.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">VI</span><h4>The Pillar of Spiritual Warfare</h4><p>Standing firm against dark forces — not from fear, but from the deep authority of those aligned with the light.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">VII</span><h4>The Pillar of Inner Treasure</h4><p>Valuing the soul above the material — recognising that what lasts was never bought and never sold.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">VIII</span><h4>The Pillar of Mindset Evolution</h4><p>The 3-stage shift to higher consciousness — resistance, awareness, and anchored integration.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">IX</span><h4>The Pillar of Frequency Lock</h4><p>Maintaining the Shalom vibration daily — returning to peace deliberately, however many times the day requires.</p></div>
+            <div class="pillar-card reveal"><span class="pillar-num">X</span><h4>The Pillar of Sacred Truth</h4><p>Speaking and living the absolute truth — because truth, gently held, is the most powerful force in any room.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO MARQUEE -->
+<section class="video-marquee-section">
+    <div class="video-marquee-header inner">
+        <span class="section-eyebrow reveal">Visions of Light</span>
+        <h2 class="section-title reveal" style="color:var(--angel-white)">VIDEO LIBRARY</h2>
+        <span class="gold-line reveal"></span>
+        <p class="section-lead reveal" style="color:rgba(253,252,250,0.55); max-width:540px; margin:0 auto;">Shalom Prayers &middot; Shalom Tell the Truth &middot; Shalom Spiritual Knowledge</p>
+    </div>
+    <div class="marquee-wrapper">
+        <div class="vid-track">
+            <div class="vid-card"><img src="images/forest-light.jpg" alt="Awakening the Inner Eye" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Awakening the Inner Eye</h4><p>Shalom Spiritual Knowledge — 12:34</p></div></div>
+            <div class="vid-card"><img src="images/angel-silhouette.jpg" alt="The Frequency Shift" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>The Frequency Shift</h4><p>Shalom Tell the Truth — 18:07</p></div></div>
+            <div class="vid-card"><img src="images/two-walkers.jpg" alt="Walking in the Light" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Walking in the Light</h4><p>Shalom Prayers — 09:22</p></div></div>
+            <div class="vid-card"><img src="images/hands-galaxy.jpg" alt="The Divine Power Grid Explained" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>The Divine Power Grid Explained</h4><p>Shalom Spiritual Knowledge — 24:15</p></div></div>
+            <div class="vid-card"><img src="images/red-knight.jpg" alt="Spiritual Warfare: A Practical Guide" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Spiritual Warfare: A Practical Guide</h4><p>Shalom Tell the Truth — 21:03</p></div></div>
+            <div class="vid-card"><img src="images/paint-woman-yellow.jpg" alt="Shalom Healing Frequencies" class="vid-card-img img-reveal"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Shalom Healing Frequencies</h4><p>Shalom Prayers — 32:00</p></div></div>
+            <!-- duplicates for loop -->
+            <div class="vid-card" aria-hidden="true"><img src="images/forest-light.jpg" alt="" class="vid-card-img"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Awakening the Inner Eye</h4><p>Shalom Spiritual Knowledge — 12:34</p></div></div>
+            <div class="vid-card" aria-hidden="true"><img src="images/angel-silhouette.jpg" alt="" class="vid-card-img"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>The Frequency Shift</h4><p>Shalom Tell the Truth — 18:07</p></div></div>
+            <div class="vid-card" aria-hidden="true"><img src="images/two-walkers.jpg" alt="" class="vid-card-img"><div class="vid-play-btn"><i class="fas fa-play" style="margin-left:3px;"></i></div><div class="vid-card-info"><h4>Walking in the Light</h4><p>Shalom Prayers — 09:22</p></div></div>
+        </div>
+    </div>
+    <p class="video-note">Video placeholders — live YouTube embeds can be dropped in when ready.</p>
+</section>
+
+<!-- SCROLLING IMAGE MARQUEE 2 -->
+<div class="marquee-section marquee-dark">
+    <div class="marquee-wrapper marquee-gold-overlay">
+        <div class="marquee-track" style="animation-duration:45s; animation-direction:reverse;">
+            <img src="images/paint-woman-orange.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/paint-woman-yellow.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/paint-woman-explosion.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/abstract-woman.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/veil-rocks.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/portal-face.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/stone-angel.jpg" alt="" class="marquee-img img-reveal">
+            <img src="images/paint-woman-orange.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/paint-woman-yellow.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/paint-woman-explosion.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/abstract-woman.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/veil-rocks.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/portal-face.jpg" alt="" class="marquee-img" aria-hidden="true">
+            <img src="images/stone-angel.jpg" alt="" class="marquee-img" aria-hidden="true">
+        </div>
+    </div>
+</div>
+
+<!-- SACRED LIBRARY & AUDIO -->
+<section id="library" class="library-section">
+    <div class="inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Sacred Library</span>
+            <h2 class="section-title" style="color:var(--angel-white)">THE SACRED LIBRARY &amp; HEALING FREQUENCIES</h2>
+            <span class="gold-line"></span>
+            <p class="section-lead" style="color:rgba(253,252,250,0.55); max-width:600px; margin:1.5rem auto 0;">Explore Bianca's chosen materials for Meditations, Prayers, God's Words, Scriptures, and Spiritual Knowledge.</p>
+        </div>
+        <div class="library-grid">
+            <div class="library-img-wrap reveal-left">
+                <img src="images/bible-iris.jpg" alt="Open scripture with a white iris" class="img-reveal">
+            </div>
+            <div class="reveal-right">
+                <div class="audio-category">
+                    <button class="audio-play-btn" aria-label="Play Shalom Healing Frequencies"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                    <div class="audio-info">
+                        <h4>🎧 Shalom Healing Frequencies</h4>
+                        <p>Tune the body and spirit to the 5D vibration.</p>
+                        <div class="audio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+                <div class="audio-category">
+                    <button class="audio-play-btn" aria-label="Play Shalom Prayers"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                    <div class="audio-info">
+                        <h4>🎧 Shalom Prayers</h4>
+                        <p>Spoken declarations of light and sovereignty.</p>
+                        <div class="audio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+                <div class="audio-category">
+                    <button class="audio-play-btn" aria-label="Play Shalom Scriptures"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                    <div class="audio-info">
+                        <h4>🎧 Shalom Scriptures</h4>
+                        <p>The living word, spoken to activate the soul.</p>
+                        <div class="audio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+                <div class="audio-category">
+                    <button class="audio-play-btn" aria-label="Play Shalom Tell the Truth"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                    <div class="audio-info">
+                        <h4>🎧 Shalom Tell the Truth</h4>
+                        <p>Raw, unfiltered revelations of the spirit.</p>
+                        <div class="audio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+                <div class="audio-category">
+                    <button class="audio-play-btn" aria-label="Play Shalom Spiritual Knowledge"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                    <div class="audio-info">
+                        <h4>🎧 Shalom Spiritual Knowledge</h4>
+                        <p>Deep teachings on the matrix and divine grid.</p>
+                        <div class="audio-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKYPTURES -->
+<section id="scriptures" class="skyptures-section section-pad">
+    <div class="skyptures-inner inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">The Word in the Stars</span>
+            <h2 class="section-title" style="color:var(--angel-white)">SKYPTURES</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="scripture-cards">
+            <div class="scripture-card">
+                <blockquote>"I am the light of the world. Whoever follows me will never walk in darkness, but will have the light of life."</blockquote>
+                <span class="scripture-ref">John 8:12</span>
+            </div>
+            <div class="scripture-card">
+                <blockquote>"The heavens declare the glory of God; the skies proclaim the work of his hands."</blockquote>
+                <span class="scripture-ref">Psalm 19:1</span>
+            </div>
+            <div class="scripture-card">
+                <blockquote>"He counts the stars and calls them all by name. How great is our Lord! His power is absolute!"</blockquote>
+                <span class="scripture-ref">Psalm 147:4–5</span>
+            </div>
+            <div class="scripture-card">
+                <blockquote>"Those who are wise will shine like the brightness of the heavens, and those who lead many to righteousness, like the stars for ever and ever."</blockquote>
+                <span class="scripture-ref">Daniel 12:3</span>
+            </div>
+            <div class="scripture-card">
+                <blockquote>"The Lord is my light and my salvation — whom shall I fear? The Lord is the stronghold of my life — of whom shall I be afraid?"</blockquote>
+                <span class="scripture-ref">Psalm 27:1</span>
+            </div>
+            <div class="scripture-card">
+                <blockquote>"You are the light of the world. A town built on a hill cannot be hidden. Let your light shine before others."</blockquote>
+                <span class="scripture-ref">Matthew 5:14–16</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CELESTIAL LEXICON -->
+<section id="lexicon" class="lexicon-section">
+    <div class="inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Decode the Language of the Spirit</span>
+            <h2 class="section-title" style="color:var(--angel-white)">THE CELESTIAL LEXICON</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="lexicon-track-wrap">
+            <div class="lexicon-track">
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">5</span>D Peace</span><p class="lexicon-def">The state of consciousness anchored in unconditional love and spiritual truth, free from the fear-based illusions of the 3D matrix.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">D</span>ivine Power Grid</span><p class="lexicon-def">The unseen network of divine energy connecting all living things to the Source — the invisible infrastructure of creation.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">F</span>requency Lock</span><p class="lexicon-def">The daily practice of maintaining a high spiritual vibration despite external circumstances — choosing peace deliberately, each day.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">S</span>overeign Postbox</span><p class="lexicon-def">A sacred exchange of light and communication — an unhurried space to write in, ask, reflect, or simply say hello.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">T</span>he Matrix</span><p class="lexicon-def">The invisible architecture of fear, separation, and forgetfulness — the system of illusions that the 5D path is walked through and beyond.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">A</span>nchoring</span><p class="lexicon-def">A deliberate practice of returning to a calm, centred state amid stress, noise, or uncertainty — the art of choosing ground.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">S</span>halom</span><p class="lexicon-def">A Hebrew word for wholeness, completeness, and peace — not merely the absence of conflict, but the presence of everything that makes life full.</p></div>
+                <div class="lexicon-card"><span class="lexicon-term"><span class="drop-initial">S</span>piritual Warfare</span><p class="lexicon-def">The conscious engagement with forces of fear, doubt, and deception — fought not with aggression, but with truth, stillness, and the authority of light.</p></div>
+                <!-- duplicate for loop -->
+                <div class="lexicon-card" aria-hidden="true"><span class="lexicon-term">5D Peace</span><p class="lexicon-def">The state of consciousness anchored in unconditional love and spiritual truth, free from the fear-based illusions of the 3D matrix.</p></div>
+                <div class="lexicon-card" aria-hidden="true"><span class="lexicon-term">Divine Power Grid</span><p class="lexicon-def">The unseen network of divine energy connecting all living things to the Source.</p></div>
+                <div class="lexicon-card" aria-hidden="true"><span class="lexicon-term">Frequency Lock</span><p class="lexicon-def">The daily practice of maintaining a high spiritual vibration despite external circumstances.</p></div>
+                <div class="lexicon-card" aria-hidden="true"><span class="lexicon-term">Sovereign Postbox</span><p class="lexicon-def">A sacred exchange of light and communication between the seeker and the divine.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOGS -->
+<section id="blogs" class="blogs-section">
+    <div class="inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Reflections</span>
+            <h2 class="section-title">DISPATCHES FROM THE PATH</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="blog-track-wrap">
+            <div class="blog-track">
+                <div class="blog-card">
+                    <img src="images/two-walkers.jpg" alt="Open door with light" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">The Journey</span>
+                        <h4>Escaping the 3D Classroom: My First Glimpse of the Grid</h4>
+                        <p>The moment I realised the lesson I needed most was never on any syllabus.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/bible-iris.jpg" alt="Hands holding candle" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Daily Practice</span>
+                        <h4>How I Lock In My Frequency: A Daily Practice</h4>
+                        <p>Five small rituals that steadied a restless mind — and still do, on harder days.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/red-knight.jpg" alt="Storm breaking to blue sky" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Spiritual Warfare</span>
+                        <h4>Identifying the Dark Forces in the Matrix</h4>
+                        <p>Fear is not always loud. These are the quiet patterns worth learning to recognise.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/forest-light.jpg" alt="Mountain path" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Evolution</span>
+                        <h4>The 3 Stages of Mindset Shift: A Personal Evolution</h4>
+                        <p>Resistance, awareness, and anchoring — a map for the honest middle part of any transformation.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/angel-silhouette.jpg" alt="Light beyond the veil" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Core Beliefs</span>
+                        <h4>Tell the Truth: Why Honesty Is a Spiritual Practice</h4>
+                        <p>The version of truth that costs something is almost always the version that heals something.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/hands-galaxy.jpg" alt="Holding the cosmos" class="blog-card-img img-reveal">
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Divine Grid</span>
+                        <h4>You Are Already Connected — A Note on the Divine Grid</h4>
+                        <p>The grid doesn't have to be found. It only has to be remembered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE 11 DOORWAYS -->
+<section id="doorways" class="doorways-section">
+    <div class="doorways-inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Navigate the Journey</span>
+            <h2 class="section-title" style="color:var(--angel-white)">THE 11 DOORWAYS</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div style="margin-top:4rem;" class="chapter-list">
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">01</span><h3 class="chapter-title">My Journey</h3><span class="chapter-desc">From 3D Pitfalls to 5D Peace</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>A personal account of recognising fear-based patterns — comparison, urgency, self-doubt — and consciously choosing, day by day, a steadier path toward peace and presence.</p><p class="chapter-prompt">Where in your life are old fears still setting the pace?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">02</span><h3 class="chapter-title">My Witness</h3><span class="chapter-desc">Beyond the Classroom</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>Years spent teaching revealed how people actually learn, struggle, and grow — and how often the deepest lessons happen far outside any formal lesson plan.</p><p class="chapter-prompt">What has experience taught you that no class ever could?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">03</span><h3 class="chapter-title">My Breakthrough</h3><span class="chapter-desc">From Suffering to Unconditional Love</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>A turning point where pain, examined honestly rather than avoided, became a doorway to a more compassionate way of relating to myself and others.</p><p class="chapter-prompt">What pain, looked at honestly, might be asking to become something gentler?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">04</span><h3 class="chapter-title">My Understanding</h3><span class="chapter-desc">The Divine Power Grid &amp; The Matrix</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>A way of thinking about the systems — visible and invisible — that shape belief and behaviour, and how to hold a sense of inner freedom within them rather than against them.</p><p class="chapter-prompt">Which beliefs are actually yours, and which were simply inherited?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">05</span><h3 class="chapter-title">My Discovery</h3><span class="chapter-desc">The Treasure of My Inner Self</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>The internal resources — intuition, stillness, self-trust — that became the real foundation once the search for outside validation finally quieted down.</p><p class="chapter-prompt">What do you already know, underneath the noise of needing to be told?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">06</span><h3 class="chapter-title">My Evolution</h3><span class="chapter-desc">The 3 Stages of Mindset Shift</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>A simple map for how a mindset tends to move — from resistance, to awareness, to quiet integration — and why none of those stages should be rushed.</p><p class="chapter-prompt">Which stage are you in right now: resisting, noticing, or settling in?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">07</span><h3 class="chapter-title">My Practices</h3><span class="chapter-desc">How I Lock In My Frequency</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>The simple daily rituals — breath, prayer, journaling, quiet — that help keep a steady centre, especially on harder days. Study the Divine Script Works.</p><p class="chapter-prompt">What's one small ritual that already steadies you, even on hard days?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">08</span><h3 class="chapter-title">My Core Beliefs</h3><span class="chapter-desc">The Ten Pillars</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>Ten foundational convictions that guide this work and this writing — laid out in full in the Ten Pillars section above.</p><p class="chapter-prompt">Which of the Ten Pillars do you find hardest to live by?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">09</span><h3 class="chapter-title">The Celestial Lexicon</h3><span class="chapter-desc">Shared Language</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>A glossary of the terms used throughout this ministry, offered so that unfamiliar language never becomes a barrier to understanding.</p><p class="chapter-prompt">Is there a word here that finally names something you've felt for years?</p></div>
+            </div>
+            <div class="chapter-item reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">10</span><h3 class="chapter-title">The Sovereign Postbox</h3><span class="chapter-desc">An Exchange of Light</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>An open, unhurried invitation to write in — questions, reflections, disagreements, or simply a hello. Every letter is read.</p><p class="chapter-prompt">What would you write, if you knew it would simply be read, not judged?</p></div>
+            </div>
+            <div class="chapter-item invitation reveal">
+                <button class="chapter-header" onclick="toggleChapter(this)" aria-expanded="false"><span class="chapter-num">11</span><h3 class="chapter-title">The Challenge</h3><span class="chapter-desc">21-Day Activation</span><span class="chapter-toggle" aria-hidden="true"></span></button>
+                <div class="chapter-detail"><p>An optional, free, 21-day activation challenge for anyone wanting a structured way to shift their mindset, lock their frequency, and step into 5D peace.</p><p class="chapter-prompt">What would twenty-one consistent days, instead of twenty-one perfect ones, look like for you?</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 21 DAYS CHALLENGE -->
+<section id="challenge" class="challenge-section section-pad">
+    <div class="challenge-inner inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Free &amp; Open to All</span>
+            <h2 class="section-title" style="color:var(--angel-white)">21 DAYS ACTIVATION CHALLENGE</h2>
+            <span class="gold-line"></span>
+            <p class="section-lead" style="color:rgba(253,252,250,0.55); max-width:540px; margin:0 auto;">Shift your mindset, lock your frequency, and step into 5D peace.</p>
+        </div>
+        <div class="challenge-grid">
+            <div class="challenge-img reveal-left">
+                <img src="images/two-walkers.jpg" alt="Walking the path of the 21-day challenge" class="img-reveal">
+            </div>
+            <div class="challenge-text reveal-right">
+                <p>"Join me on a 21-day journey to activate your divine inheritance. Over three weeks, we will systematically dismantle 3D illusions, heal core wounds, and anchor your spirit into the Divine Power Grid."</p>
+                <ul class="challenge-steps">
+                    <li><span class="step-num">Week 1</span>Recognising the illusion — becoming aware of fear-based patterns and where they live in your daily life.</li>
+                    <li><span class="step-num">Week 2</span>Dismantling the ego — gentle, honest work on the beliefs and habits that kept those patterns in place.</li>
+                    <li><span class="step-num">Week 3</span>Anchoring into sovereignty — building the daily practices that maintain the Shalom frequency from the inside out.</li>
+                </ul>
+                <p style="margin-top:1rem; color:rgba(253,252,250,0.45); font-size:0.88rem;">Everything in this challenge is free. No sign-up, no cost, no obligation — just the next step, whenever you're ready.</p>
+                <a href="#postbox" class="btn btn-gold" style="margin-top:2.5rem; display:inline-block;">Accept the Challenge</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+    <div class="faq-inner">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Honest Answers</span>
+            <h2 class="section-title">A FEW HONEST ANSWERS</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="faq-accent reveal"><img src="images/abstract-woman.jpg" alt="" class="img-reveal"></div>
+        <div class="faq-item reveal">
+            <button class="faq-btn" onclick="toggleFaq(this)">Is there a cost to anything here?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+            <div class="faq-answer"><p>No. Everything on this site — the writing, the 21-Day Activation Challenge, the Sacred Library, the Sovereign Postbox — is offered freely. Nothing is sold, and there is no membership or paywall.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-btn" onclick="toggleFaq(this)">Do I need any prior experience or belief system?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+            <div class="faq-answer"><p>No. This work is written for anyone curious about steadier peace and presence, regardless of background, faith, or how much (or little) you've explored before. The language is devotional, but the door is open.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-btn" onclick="toggleFaq(this)">Is this affiliated with a specific religion or organisation?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+            <div class="faq-answer"><p>This is an independent, personal ministry. Scripture and devotional language are part of the voice here, but the reflections are meant to be read in whatever way is meaningful to you.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-btn" onclick="toggleFaq(this)">What is the Sovereign Postbox?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+            <div class="faq-answer"><p>It's a simple email exchange — a place to write in with a question, a reflection, or just to say hello. Every letter is read personally; there's no automated reply.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-btn" onclick="toggleFaq(this)">What are the Healing Frequencies?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+            <div class="faq-answer"><p>These are audio recordings — meditations, spoken prayers, scripture readings — intended to support a practice of daily stillness. They are not medical treatment and make no medical claims; they are devotional tools, freely offered.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- SOVEREIGN POSTBOX -->
+<section id="postbox" class="postbox-section">
+    <div class="postbox-inner">
+        <img src="images/thank-you.jpg" alt="An open hand beneath a sky filled with gratitude" class="postbox-thankyou reveal img-reveal">
+        <div class="text-center reveal">
+            <span class="section-eyebrow">Connect</span>
+            <h2 class="section-title" style="color:var(--angel-white)">THE SOVEREIGN POSTBOX</h2>
+            <span class="gold-line"></span>
+            <p class="section-lead" style="color:rgba(253,252,250,0.55);">"This is a sacred space for connection. Reach out, share your witness, or ask for prayer. Every message received is treated as an exchange of light in the divine grid."</p>
+        </div>
+        <form class="postbox-form reveal" onsubmit="handleForm(event)">
+            <div class="form-field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="What shall I call you?" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="For a personal reply" required>
+            </div>
+            <div class="form-field">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Share your witness, ask a question, or simply say hello..." rows="5" required></textarea>
+            </div>
+            <div style="text-align:center; margin-top:1rem;">
+                <button type="submit" class="btn btn-gold" id="submitBtn">Exchange Light ✦</button>
+            </div>
+            <p id="formMsg" style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--divine-gold); display:none; margin-top:1rem;"></p>
+        </form>
+    </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns" class="campaigns-section section-pad">
+    <div class="campaigns-bg"></div>
+    <div class="campaigns-inner">
+        <div class="reveal">
+            <span class="section-eyebrow">Coming Soon</span>
+            <h2 class="section-title" style="color:var(--angel-white)">DIVINE CAMPAIGNS</h2>
+            <span class="gold-line"></span>
+        </div>
+        <div class="in-progress-badge reveal">🚧 IN PROGRESS 🚧</div>
+        <p class="reveal">"New initiatives are currently being forged in the fires of creation. Future campaigns, retreats, and activations are coming soon to help you deepen your journey."</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo-wrap">
+        <img src="images/logo.png" alt="Bianca Shalom" class="footer-logo-img img-reveal">
+        <div class="footer-gold-line"></div>
+    </div>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>The Ministry</h4>
+            <p>A devotional ministry sharing free reflections, healing frequencies, and teachings for anyone walking from 3D pitfalls toward 5D peace.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="mailto:hello@biancashalom.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>The Journey</h4>
+            <ul>
+                <li><a href="#note">A Note from My Heart</a></li>
+                <li><a href="#journey">The Story</a></li>
+                <li><a href="#pillars">Ten Pillars</a></li>
+                <li><a href="#doorways">The 11 Doorways</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Sacred Library</h4>
+            <ul>
+                <li><a href="#library">Healing Frequencies</a></li>
+                <li><a href="#library">Prayers</a></li>
+                <li><a href="#scriptures">Skyptures</a></li>
+                <li><a href="#lexicon">Celestial Lexicon</a></li>
+                <li><a href="#blogs">Dispatches</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            <ul>
+                <li><a href="#postbox">Sovereign Postbox</a></li>
+                <li><a href="#challenge">21-Day Challenge</a></li>
+                <li><a href="#faq">Honest Answers</a></li>
+                <li><a href="#campaigns">Campaigns</a></li>
+                <li><a href="mailto:hello@biancashalom.com">hello@biancashalom.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 BIANCA SHALOM. Walking in the Light. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+/* ===== READING PROGRESS BAR ===== */
+const bar = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+}, { passive: true });
+
+/* ===== HEADER SCROLL ===== */
+const header = document.getElementById('mainHeader');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ===== HERO PARALLAX (desktop only) ===== */
+const heroBg = document.getElementById('heroBg');
+const mq = window.matchMedia('(min-width: 901px) and (prefers-reduced-motion: no-preference)');
+if (mq.matches) {
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < window.innerHeight * 1.2) heroBg.style.transform = `translateY(${y * 0.3}px)`;
+    }, { passive: true });
+}
+
+/* ===== SCROLL REVEAL ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .gold-line').forEach(el => revealObserver.observe(el));
+
+/* ===== IMAGE LAZY LOAD & FADE IN ===== */
+const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            const img = e.target;
+            img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+            if (img.complete) img.classList.add('loaded');
+            imgObserver.unobserve(img);
+        }
+    });
+}, { rootMargin: '200px' });
+document.querySelectorAll('.img-reveal').forEach(img => imgObserver.observe(img));
+// Immediate reveal for already-loaded images
+document.querySelectorAll('.img-reveal').forEach(img => { if (img.complete) img.classList.add('loaded'); });
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('mobileToggle').addEventListener('click', function() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('active');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+        document.querySelector('#mobileToggle i').classList.add('fa-bars');
+        document.querySelector('#mobileToggle i').classList.remove('fa-times');
+    });
+});
+
+/* ===== DOORWAYS ACCORDION ===== */
+function toggleChapter(btn) {
+    const item = btn.closest('.chapter-item');
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+}
+
+/* ===== FAQ ACCORDION ===== */
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+    const icon = btn.querySelector('.faq-icon i');
+    icon.classList.toggle('fa-plus');
+    icon.classList.toggle('fa-minus');
+}
+
+/* ===== FORM ===== */
+function handleForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    setTimeout(() => {
+        btn.style.display = 'none';
+        msg.textContent = 'Your message has been received — thank you for writing in. ✦';
+        msg.style.display = 'block';
+    }, 1200);
+}
+</script>
+</body>
+</html>
